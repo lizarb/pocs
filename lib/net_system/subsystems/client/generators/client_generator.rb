@@ -1,22 +1,30 @@
-class NetSystem::ClientGenerator < DevSystem::ControllerGenerator
-  
-  section :actions
-  
-  # liza g client name place=app
+class NetSystem::ClientGenerator < DevSystem::SimpleGenerator
 
+
+  section :actions
+
+  # liza g client name
   def call_default
-    set_default_super ""
-    
-    create_controller do |unit, test|
-      unit.section name: :controller
-      test.section name: :test
+    fname = arg_name
+
+    create_file "client_#{fname}.txt", :default, :txt
+  end
+
+
+  # liza g client:simple name
+  def call_simple
+    fname = arg_name
+
+    create_file "client_simple_#{fname}.txt", :simple, :txt
+  end
+
+
+  def arg_name
+    # @arg_name ||= (name = command.simple_arg(1) until name.to_s.strip.length.positive?; name)
+    @arg_name ||= begin
+      name = command.simple_arg(1) until name.to_s.strip.length.positive?
+      name
     end
   end
-  
-  # liza g client:examples
-  
-  def call_examples
-    copy_examples Client
-  end
-  
+
 end

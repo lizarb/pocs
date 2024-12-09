@@ -8,6 +8,18 @@ class WebSystem::WebBox < Liza::Box
     # RequestPanel.instance gives you read-access to this instance
   end
 
+  preconfigure :asset do
+    # AssetPanel.instance gives you read-access to this instance
+  end
+
+  preconfigure :channel do
+    # ChannelPanel.instance gives you read-access to this instance
+  end
+
+  preconfigure :site do
+    # SitePanel.instance gives you read-access to this instance
+  end
+
 end
 
 __END__

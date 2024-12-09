@@ -5,4 +5,6 @@ class DeskSystem < Liza::System
 
   color :turquoise
 
+  panel :selene
+  panel :window
 end

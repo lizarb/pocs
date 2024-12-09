@@ -5,4 +5,5 @@ class WorkSystem < Liza::System
 
   color :saffron
 
+  panel :line
 end

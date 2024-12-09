@@ -1,5 +1,13 @@
 class WebBox < WebSystem::WebBox
 
+  configure :asset do
+    # AssetPanel.instance gives you read-access to this instance
+  end
+
+  configure :channel do
+    # ChannelPanel.instance gives you read-access to this instance
+  end
+
   configure :rack do
     # RackPanel.instance gives you read-access to this instance
     # server (pick one, check gemfile)
@@ -17,6 +25,10 @@ class WebBox < WebSystem::WebBox
   configure :request do
     # RequestPanel.instance gives you read-access to this instance
     router :simple
+  end
+
+  configure :site do
+    # SitePanel.instance gives you read-access to this instance
   end
 
 end
